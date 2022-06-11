@@ -17,6 +17,11 @@ public class BlogDto {
 		setCategoryIdFk(categoryId);
 		setCategoryName(categoryName);
 	}
+	public BlogDto(String title, String description, int categoryId) {
+		setTitle(title);
+		setDescription(description);
+		setCategoryIdFk(categoryId);
+	}
 	public int getId() {
 		return id;
 	}

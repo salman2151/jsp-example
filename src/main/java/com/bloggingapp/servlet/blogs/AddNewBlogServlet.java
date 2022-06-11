@@ -10,32 +10,36 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bloggingapp.dao.CategoryDAO;
+import com.bloggingapp.dao.BlogDAO;
 import com.bloggingapp.dao.LoginDao;
-import com.bloggingapp.dto.CategoryDto;
+import com.bloggingapp.dto.BlogDto;
 import com.bloggingapp.dto.LoginDto;
 
 
 @WebServlet("/AddNewBlogServlet") // mapper with login, as url pattern as we are not using web.xml or deployment descriptor, that why we are using @WebServlet to define Servlet
 public class AddNewBlogServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-private CategoryDAO categoryDAO;
+private BlogDAO blogDAO;
 	
 	public void init() {
-		categoryDAO = new CategoryDAO();
+		blogDAO = new BlogDAO();
 	}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
 
-        String categoryName = request.getParameter("categoryName");
-     
-        CategoryDto categoryDto = new CategoryDto(categoryName);
+    	
+        String title = request.getParameter("title");
+        String description = request.getParameter("description");
+        int categoryId = Integer.parseInt(request.getParameter("category_id"));
+
+        
+        BlogDto blogDto = new BlogDto(title,description,categoryId);
        
-       // categoryDAO.insertCategory(categoryDto);
+       // blogDAO.insertCategory(blogDto);
         try {
-        	 categoryDAO.insertCategory(categoryDto);
-        	   response.sendRedirect("GetAllCategoriesServlet");
+        	 blogDAO.insertBlog(blogDto);
+        	   response.sendRedirect("GetAllBlogsServlet");
         } catch (SQLException e) {
             e.printStackTrace();
         }

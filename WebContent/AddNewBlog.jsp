@@ -11,10 +11,18 @@
 <body>
  <div class="center">
       <h1>Add New Category</h1>
-     <form action="<%=request.getContextPath()%>/AddNewCategoryServlet" method="post">
+     <form action="<%=request.getContextPath()%>/AddNewBlogServlet" method="post">
         <div class="txt_field">
-          <input name= "categoryName" type="text" required>
-          <label>Category Name</label>
+          <input name= "title" type="text" required>
+          <label>Title</label>
+        </div>
+         <div class="txt_field">
+          <input name= "description" type="text" required>
+          <label>Description</label>
+        </div>
+         <div class="txt_field">
+          <input name= "category_id" type="text" required>
+          <label>CategoryId</label>
         </div>
         
         <input type="submit" value="Save">
