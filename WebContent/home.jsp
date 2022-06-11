@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,6 +61,31 @@
 				<a href="<%=request.getContextPath()%>/new" class="btn btn-success">Add New Category</a>
 				<br>
 				<hr>
+				
+				  <table border="1" >
+           <caption><h2>List of Books</h2></caption>
+           <tr>
+               <th>ID</th>
+               <th>Title</th>
+               <th>Author</th>
+               <th>Price</th>
+               <th>Actions</th>
+           </tr>
+           <c:forEach var="category" items="${listCategoryDto}">
+               <tr>
+                   <td><c:out value="${category.getId()}" /></td>
+                   <td><c:out value="${category.getName()}" /></td>
+                   <td>
+                       <a href="/edit?id=<c:out value='${category.getId()}' />">Edit</a>
+                       &nbsp;&nbsp;&nbsp;&nbsp;
+                       <a href="/delete?id=<c:out value='${category.getId()}' />">Delete</a>                    
+                   </td>
+               </tr>
+           </c:forEach>
+       </table>
+				
+				
+				
 			</div>
 			<div id="post-div"
 				style="display: none; width: 100%; height: 100%; background: yellow">
