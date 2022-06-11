@@ -64,7 +64,7 @@ public class CatergoryServlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 		List<CategoryDto> listCategoryDto = categoryDAO.selectAllCategoryDtos();
 		request.setAttribute("listCategoryDto", listCategoryDto);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("user-list.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
 		dispatcher.forward(request, response);
 	}
 

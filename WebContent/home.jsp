@@ -56,6 +56,9 @@
 				style="display: none; width: 100%; height: 100%; background: pink">
 
 				<h3 style="text-align: center; padding-top: 15px">CATEGORIES</h3>
+				<a href="<%=request.getContextPath()%>/new" class="btn btn-success">Add New Category</a>
+				<br>
+				<hr>
 			</div>
 			<div id="post-div"
 				style="display: none; width: 100%; height: 100%; background: yellow">
