@@ -5,21 +5,27 @@
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>New Category</title>
+<title>Update Category</title>
 <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
  <div class="center">
-      <h1>Add New Category</h1>
-     <form action="<%=request.getContextPath()%>/AddNewCategoryServlet" method="post">
-        <div class="txt_field">
-          <input name= "categoryName" type="text" required>
+      <h1>Update Category</h1>
+     <form action="<%=request.getContextPath()%>/UpdateCategoryServlet">
+   <div class="txt_field">
+          <input name= "categoryName" type="text"
+         value="<c:out value='${editableCategoryDto.getName()}' />"
+           required>
           <label>Category Name</label>
         </div>
         
-        <input type="submit" value="Save">
+     
+        
+        <input type="submit" value="Edit">
     
       </form>
     </div>
 </body>
 </html>
+
+

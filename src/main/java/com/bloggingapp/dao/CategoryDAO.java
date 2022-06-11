@@ -19,7 +19,7 @@ public class CategoryDAO {
 
 
 	private static final String INSERT_CATEGORY_SQL = 	"INSERT INTO category (name) VALUES "+ " (?);";
-
+	private static final String GET_CATEGORY_BY_ID_SQL = "select * from category where id = ?;";
 	private static final String SELECT_ALL_CATEGORIES = "select * from category";
 	private static final String DELETE_CATEGORY_SQL = "delete from category where id = ?;";
 	private static final String UPDATE_CATEGORY_SQL = "update category set name = ? where id = ?;";
@@ -122,6 +122,30 @@ public class CategoryDAO {
 		return rowUpdated;	
 	}
 
+	public CategoryDto getCategoryById(int id) {
+		CategoryDto categoryDto = null;
+		// Step 1: Establishing a Connection
+		try (Connection connection = getConnection();
+				// Step 2:Create a statement using connection object
+				PreparedStatement preparedStatement = connection.prepareStatement(GET_CATEGORY_BY_ID_SQL);) {
+			preparedStatement.setInt(1, id);
+			System.out.println(preparedStatement);
+			// Step 3: Execute the query or update query
+			ResultSet rs = preparedStatement.executeQuery();
+
+			// Step 4: Process the ResultSet object.
+			while (rs.next()) {
+				int categoryId = rs.getInt("id");
+				String name = rs.getString("name");
+				Date createdOn = rs.getDate("created_on");
+				categoryDto = new CategoryDto(categoryId, name, createdOn);
+			}
+		} catch (SQLException e) {
+			printSQLException(e);
+		}
+		return categoryDto;
+	}
+	
 	private void printSQLException(SQLException ex) {
 		for (Throwable e : ex) {
 			if (e instanceof SQLException) {

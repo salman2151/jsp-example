@@ -18,8 +18,8 @@ public class CategoryDto {
 			setName(name);
 		}
 
-		public CategoryDto(int id, String name) {
-			setId(id);
+		public CategoryDto(int categoryId, String name) {
+			setId(categoryId);
 			setName(name);
 		}
 
