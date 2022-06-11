@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
 
         try {
             if (loginDao.validate(logindto)) {
-                response.sendRedirect("GetAllCategoriesServlet");
+                response.sendRedirect("GetRecentThreeBlogsServlet");
             } else {
             	PrintWriter printWriter = response.getWriter();
             	printWriter.println("<script type=\"text/javascript\">");

@@ -14,7 +14,7 @@ import com.bloggingapp.dao.BlogDAO;
 import com.bloggingapp.dto.BlogDto;
 
 
-//@WebServlet("/GetAllCategoriesServlet")
+//@WebServlet("/GetRecentThreeBlogsServlet")
 @WebServlet(name="GetRecentThreeBlogsServlet" ,urlPatterns= {"/GetRecentThreeBlogsServlet"})
 public class GetRecentThreeBlogsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

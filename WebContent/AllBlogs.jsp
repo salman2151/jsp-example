@@ -14,7 +14,7 @@
 <body>
 	<div class="header">
 		<h2>BLOGS Portal</h2>
-		<a href="home.jsp" class="btn btn-success">HOME SCREEN</a>
+		<a href="GetRecentThreeBlogsServlet" class="btn btn-success">HOME SCREEN</a>
 		<nav class="topnav-right"></nav>
 	</div>
 

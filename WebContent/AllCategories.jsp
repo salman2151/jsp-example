@@ -14,12 +14,11 @@
 <body>
 	<div class="header">
 		<h2>BLOGS Portal</h2>
-		<a href="home.jsp" class="btn btn-success">HOME SCREEN</a>
+		<a href="GetRecentThreeBlogsServlet" class="btn btn-success">HOME SCREEN</a>
 		<nav class="topnav-right"></nav>
 	</div>
 
-	<div
-		style="display: flex; height: 85%; margin: 10px; background: white; border-radius: 10px; padding: 20px">
+	<div style="display: flex; height: 85%; margin: 10px; background: white; border-radius: 10px; padding: 20px">
 
 		<div id="category-div" style="width: 100%; height: 100%">
 
