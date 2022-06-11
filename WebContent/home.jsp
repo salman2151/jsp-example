@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
@@ -10,16 +10,10 @@
 <title>Login</title>
 <link rel="stylesheet" href="CSS/style.css">
 
-<script type="text/javascript"> <!-- Scripts for buttons onclick listeners -->
-	function onHomeButtonClick() {
-		document.getElementById('post-div').style.display = 'none'
-		document.getElementById('category-div').style.display = 'none'
-		document.getElementById('home-div').style.display = 'block'
-	}
+<script type="text/javascript">
+<!-- Scripts for buttons onclick listeners -->
 	function onCategoryButtonClick() {
-		document.getElementById('post-div').style.display = 'none'
-		document.getElementById('home-div').style.display = 'none'
-		document.getElementById('category-div').style.display = 'block'
+		
 	}
 	function onPostButtonClick() {
 		document.getElementById('category-div').style.display = 'none'
@@ -33,65 +27,19 @@
 		<h2>BLOGS Portal</h2>
 		<nav class="topnav-right"></nav>
 	</div>
-	<div
-		style="display: flex; height: 85%; margin: 20px; background: white; border-radius: 10px;">
+
+	<div class=center>
 		<div class="btn-group"
-			style="width: 20%; background: #F0F0F0; padding: 15px; border-radius: 10px;">
-			<!-- left div -->
-			<button id="btn-home" onClick="onHomeButtonClick()">Home</button>
-			<button id="btn-categories" onClick="onCategoryButtonClick()">Categories</button>
-			<button id="btn-posts" onClick="onPostButtonClick()">Posts</button>
+			style="width: 100%; background: #F0F0F0; padding: 15px; border-radius: 10px;">
+			<button id="btn-categories" onclick="location.href = 'GetAllCategoriesServlet'">CRUD
+				Categories</button>
+			<button id="btn-posts" onClick="onPostButtonClick()">CRUD
+				Posts</button>
 			<button onclick="location.href = 'login.jsp'"
 				style="margin-top: 20px; background: #cd5c5c; border-radius: 10px;">Logout</button>
 		</div>
-		<!-- right div -->
-		<div class="btn-group" style="width: 80%; padding: 10px">
-
-			<div id="home-div"
-				style=" width: 100%; height: 100%; background: red">
-
-				<h3 style="text-align: center; padding-top: 15px">HOME</h3>
-
-
-			</div>
-			<div id="category-div"
-				style="display: none; width: 100%; height: 100%; background: pink">
-
-				<h3 style="text-align: center; padding-top: 15px">CATEGORIES</h3>
-				<a href="<%=request.getContextPath()%>/new" class="btn btn-success">Add New Category</a>
-				<br>
-				<hr>
-				
-				  <table border="1" >
-           <caption><h2>List of Books</h2></caption>
-           <tr>
-               <th>ID</th>
-               <th>Title</th>
-               <th>Author</th>
-               <th>Price</th>
-               <th>Actions</th>
-           </tr>
-           <c:forEach var="category" items="${listCategoryDto}">
-               <tr>
-                   <td><c:out value="${category.getId()}" /></td>
-                   <td><c:out value="${category.getName()}" /></td>
-                   <td>
-                       <a href="/edit?id=<c:out value='${category.getId()}' />">Edit</a>
-                       &nbsp;&nbsp;&nbsp;&nbsp;
-                       <a href="/delete?id=<c:out value='${category.getId()}' />">Delete</a>                    
-                   </td>
-               </tr>
-           </c:forEach>
-       </table>
-				
-				
-				
-			</div>
-			<div id="post-div"
-				style="display: none; width: 100%; height: 100%; background: yellow">
-				<h3 style="text-align: center; padding-top: 15px">POSTS</h3>
-			</div>
-		</div>
 	</div>
+	<!-- 	</div> -->
 </body>
+
 </html>

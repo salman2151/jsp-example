@@ -39,7 +39,7 @@
 					New User</a>
 			</div>
 			<br>
-			<table class="table table-bordered">
+0			<table class="table table-bordered">
 				<thead>
 					<tr>
 						<th>ID</th>
