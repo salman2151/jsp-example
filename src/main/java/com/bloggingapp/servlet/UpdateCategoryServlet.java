@@ -17,9 +17,6 @@ import com.bloggingapp.dao.LoginDao;
 import com.bloggingapp.dto.CategoryDto;
 import com.bloggingapp.dto.LoginDto;
 
-import net.javaguides.usermanagement.model.User;
-
-
 @WebServlet("/UpdateCategoryServlet") // mapper with login, as url pattern as we are not using web.xml or deployment descriptor, that why we are using @WebServlet to define Servlet
 public class UpdateCategoryServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
