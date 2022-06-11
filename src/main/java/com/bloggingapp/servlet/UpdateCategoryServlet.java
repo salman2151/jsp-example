@@ -1,10 +1,7 @@
 package com.bloggingapp.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.List;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,9 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bloggingapp.dao.CategoryDAO;
-import com.bloggingapp.dao.LoginDao;
 import com.bloggingapp.dto.CategoryDto;
-import com.bloggingapp.dto.LoginDto;
 
 @WebServlet("/UpdateCategoryServlet") // mapper with login, as url pattern as we are not using web.xml or deployment descriptor, that why we are using @WebServlet to define Servlet
 public class UpdateCategoryServlet extends HttpServlet {
