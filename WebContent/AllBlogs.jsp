@@ -12,6 +12,7 @@
 
 </head>
 <body>
+
 	<div class="header">
 		<h2>BLOGS Portal</h2>
 		<a href="GetRecentThreeBlogsServlet" class="btn btn-success">HOME SCREEN</a>
@@ -23,7 +24,9 @@
 		<div id="blogs-div" style="width: 100%; height: 100%;overflow:auto">
 
 			<h3 style="text-align: center; padding-top: 10px">BLOGS</h3>
+			<c:if test = "${isAdminSignedIn == true}">
 			<a href="AddNewBlogServlet" class="btn btn-success">Add New Blog</a>
+			</c:if>
 			<br>
 			<hr>
 
@@ -53,7 +56,8 @@
 							&nbsp;&nbsp;&nbsp;&nbsp; 
 							<a href="EditBlogServlet?blog_id=<c:out value='${blog.id}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; 
-								<a href="DeleteBlogServlet?blog_id=<c:out value='${blog.id}' />">Delete</a></td>
+								<a href="DeleteBlogServlet?blog_id=<c:out value='${blog.id}' />">Delete</a>
+								</td>
 						</tr>
 					</c:forEach>
 				</tbody>

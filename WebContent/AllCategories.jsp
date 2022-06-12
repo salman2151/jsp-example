@@ -12,8 +12,6 @@
 
 </head>
 <body>
-<% out.println("Scriplet Number is " +com.bloggingapp.contant.Constants.isAdminSignedIn);
-%>
 
 	<div class="header">
 		<h2>BLOGS Portal</h2>
@@ -27,21 +25,19 @@
 
 			<h3 style="text-align: center; padding-top: 10px">CATEGORIES</h3>
 			<a href="AddNewCategory.jsp" class="btn btn-success">Add New
-				Category</a> <br>
+				Category</a>
+				 <br>
 			<hr>
 
 
 			<table style="width: 100%">
 				<thead>
 					<tr>
-						<td><b><u>ID</u></b>
-						</th>
-						<td><b><u>Name</u></b>
-						</th>
-						<td><b><u>Created On</u></b>
-						</th>
-						<td><b><u>Actions</u></b>
-						</th>
+						<td><b><u>ID</u></b></td>
+						<td><b><u>Name</u></b>	</td>
+						<td><b><u>Created On</u></b></td>
+						<td><b><u>Actions</u></b></td>
+						
 					</tr>
 				</thead>
 				<tbody>
@@ -51,7 +47,8 @@
 							<td><c:out value="${category.getId()}" /></td>
 							<td><c:out value="${category.getName()}" /></td>
 							<td><c:out value="${category.getOnCreated()}" /></td>
-							<td><a
+							<td>
+							<a
 								href="UpdateCategoryServlet?categoryId=<c:out value='${category.id}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
 								href="DeleteCategoryServlet?categoryId=<c:out value='${category.id}' />">Delete</a></td>
