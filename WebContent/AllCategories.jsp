@@ -20,7 +20,7 @@
 
 	<div style="display: flex; height: 85%; margin: 10px; background: white; border-radius: 10px; padding: 20px">
 
-		<div id="category-div" style="width: 100%; height: 100%">
+		<div id="category-div" style="width: 100%; height: 100%;overflow:auto">
 
 			<h3 style="text-align: center; padding-top: 10px">CATEGORIES</h3>
 			<a href="AddNewCategory.jsp" class="btn btn-success">Add New
