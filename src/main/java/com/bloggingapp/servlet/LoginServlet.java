@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.bloggingapp.contant.Constants;
 import com.bloggingapp.dao.LoginDao;
 import com.bloggingapp.dto.LoginDto;
 
@@ -32,6 +34,7 @@ public class LoginServlet extends HttpServlet {
 
         try {
             if (loginDao.validate(logindto)) {
+Constants.isAdminSignedIn = true;
                 response.sendRedirect("GetRecentThreeBlogsServlet");
             } else {
             	PrintWriter printWriter = response.getWriter();
