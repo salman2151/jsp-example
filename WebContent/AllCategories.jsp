@@ -49,9 +49,9 @@
 							<td><c:out value="${category.getName()}" /></td>
 							<td><c:out value="${category.getOnCreated()}" /></td>
 							<td><a
-								href="UpdateCategory.jsp?id=<c:out value='${category.id}' />">Edit</a>
+								href="UpdateCategoryServlet?categoryId=<c:out value='${category.id}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="DeleteCategoryServlet?id=<c:out value='${category.id}' />">Delete</a></td>
+								href="DeleteCategoryServlet?categoryId=<c:out value='${category.id}' />">Delete</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

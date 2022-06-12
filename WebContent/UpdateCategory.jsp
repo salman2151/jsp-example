@@ -11,10 +11,17 @@
 <body>
  <div class="center">
       <h1>Update Category</h1>
-     <form action="<%=request.getContextPath()%>/UpdateCategoryServlet">
+     <form action="<%=request.getContextPath()%>/UpdateCategoryServlet" method="post">
+       <div class="txt_field">
+          <input name= "categoryId" type="text"  readonly="readonly" 
+         value='${editableCategoryDto.getId()}' 
+           required>
+        <!--   <label>Category Id</label> -->
+        </div>
+        
    <div class="txt_field">
           <input name= "categoryName" type="text"
-         value="<c:out value='${editableCategoryDto.getName()}' />"
+         value='${editableCategoryDto.getName()}' 
            required>
           <label>Category Name</label>
         </div>

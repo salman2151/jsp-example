@@ -110,7 +110,7 @@ public class CategoryDAO {
 			if(connection!=null) {
 				PreparedStatement statement = connection.prepareStatement(UPDATE_CATEGORY_SQL);
 				statement.setString(1, categoryDto.getName());
-				statement.setInt(4, categoryDto.getId());
+				statement.setInt(2, categoryDto.getId());
 
 				rowUpdated = statement.executeUpdate() > 0;
 			}

@@ -23,24 +23,24 @@ private CategoryDAO categoryDAO;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+    	int id = Integer.parseInt(request.getParameter("categoryId"));
 
         String categoryName = request.getParameter("categoryName");
      
-        CategoryDto categoryDto = new CategoryDto(categoryId,categoryName);
+        CategoryDto categoryDto = new CategoryDto(id,categoryName);
        
        // categoryDAO.insertCategory(categoryDto);
         try {
-        	 categoryDAO.insertCategory(categoryDto);
+        	 categoryDAO.updateCategoryDto(categoryDto);
         	   response.sendRedirect("GetAllCategoriesServlet");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("categoryId"));
 		CategoryDto categoryDto = categoryDAO.getCategoryById(id);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("user-form.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("UpdateCategory.jsp");
 		request.setAttribute("editableCategoryDto", categoryDto);
 		dispatcher.forward(request, response);
 	}

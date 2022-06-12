@@ -31,7 +31,7 @@ private CategoryDAO categoryDAO;
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("categoryId"));
 		try {
 			categoryDAO.deleteCategoryDto(id);
 			response.sendRedirect("GetAllCategoriesServlet");

@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,23 +13,36 @@
 <body>
  <div class="center">
       <h1>Add New Category</h1>
-     <form action="<%=request.getContextPath()%>/AddNewBlogServlet" method="post">
-        <div class="txt_field">
-          <input name= "title" type="text" required>
-          <label>Title</label>
-        </div>
-         <div class="txt_field">
-          <input name= "description" type="text" required>
-          <label>Description</label>
-        </div>
-         <div class="txt_field">
-          <input name= "category_id" type="text" required>
-          <label>CategoryId</label>
-        </div>
-        
-        <input type="submit" value="Save">
+      		<table style="width: 100%">
+				<thead>
+					<tr>
+						<td><b><u>ID</u></b>
+						</th>
+						<td><b><u>Name</u></b>
+						</th>
+						<td><b><u>Created On</u></b>
+						</th>
+						<td><b><u>Actions</u></b>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="category" items="${listOfAllCategories}">
+
+						<tr>
+							<td><c:out value="${category.getId()}" /></td>
+							<td><c:out value="${category.getName()}" /></td>
+							<td><c:out value="${category.getOnCreated()}" /></td>
+							<td><a
+								href="UpdateCategory.jsp?id=<c:out value='${category.id}' />">Edit</a>
+								&nbsp;&nbsp;&nbsp;&nbsp; <a
+								href="DeleteCategoryServlet?id=<c:out value='${category.id}' />">Delete</a></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+      
     
-      </form>
     </div>
 </body>
 </html>
