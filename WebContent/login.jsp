@@ -6,9 +6,11 @@
 
 <script type="text/javascript">
 
-function passDetails() {
-     
-        window.location.href = "GetRecentThreeBlogsServlet";
+function skipForBloggerOnClick() {
+	<%
+	com.bloggingapp.contant.Constants.isAdminSignedIn = false;
+	%>
+	window.location.href = "GetRecentThreeBlogsServlet";
 }
 </script>
 
@@ -16,8 +18,6 @@ function passDetails() {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Login</title>
 <link rel="stylesheet" href="CSS/style.css">
-
-
 </head>
 <body>
  <div class="center" style="padding-bottom:30px" >
@@ -38,7 +38,7 @@ function passDetails() {
       </form>
 <div class="btn-group"
 			style="width: 100%">
-			<button id="btn-posts" onclick="location.href = 'GetRecentThreeBlogsServlet'">CRUD
+			<button id="btn-posts" onclick="skipForBloggerOnClick()">CRUD
 				Skip for Bloggers</button>
 		</div>
   

@@ -12,6 +12,9 @@
 
 </head>
 <body>
+<% out.println("Scriplet Number is " +com.bloggingapp.contant.Constants.isAdminSignedIn);
+%>
+
 	<div class="header">
 		<h2>BLOGS Portal</h2>
 		<a href="GetRecentThreeBlogsServlet" class="btn btn-success">HOME SCREEN</a>
@@ -65,6 +68,7 @@
 
 
 	</div>
+
 </body>
 
 </html>
