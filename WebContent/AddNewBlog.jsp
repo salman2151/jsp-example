@@ -12,37 +12,29 @@
 </head>
 <body>
  <div class="center">
-      <h1>Add New Category</h1>
-      		<table style="width: 100%">
-				<thead>
-					<tr>
-						<td><b><u>ID</u></b>
-						</th>
-						<td><b><u>Name</u></b>
-						</th>
-						<td><b><u>Created On</u></b>
-						</th>
-						<td><b><u>Actions</u></b>
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="category" items="${listOfAllCategories}">
-
-						<tr>
-							<td><c:out value="${category.getId()}" /></td>
-							<td><c:out value="${category.getName()}" /></td>
-							<td><c:out value="${category.getOnCreated()}" /></td>
-							<td><a
-								href="UpdateCategory.jsp?id=<c:out value='${category.id}' />">Edit</a>
-								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="DeleteCategoryServlet?id=<c:out value='${category.id}' />">Delete</a></td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-      
+      <h1>Add New BLOG</h1>
+     <form action="<%=request.getContextPath()%>/AddNewBlogServlet" method="post">
+        <div class="txt_field">
+          <input name= "title" type="text" required>
+          <label>Title</label>
+        </div>
+         <div class="txt_field">
+          <input name= "description" type="text" required>
+          <label>Description</label>
+        </div>
+      <!--    <div class="txt_field">
+          <input name= "category_id" type="text" required>
+          <label>CategoryId</label>
+        </div> -->
+        <select name="category_id" style = "width:100%;margin-bottom:40px;margin-top:5px; height:50px">
+    <c:forEach var="category" items="${listOfAllCategoriesOnAddBlog}">
+        <option value="${category.getId()}">${category.getName()}</option>
+    </c:forEach>
+</select>
+        
+        <input type="submit" value="Save">
     
+      </form>
     </div>
 </body>
 </html>

@@ -23,7 +23,7 @@
 		<div id="blogs-div" style="width: 100%; height: 100%">
 
 			<h3 style="text-align: center; padding-top: 10px">BLOGS</h3>
-			<a href="AddNewBlog.jsp" class="btn btn-success">Add New Blog</a>
+			<a href="AddNewBlogServlet" class="btn btn-success">Add New Blog</a>
 			<br>
 			<hr>
 
