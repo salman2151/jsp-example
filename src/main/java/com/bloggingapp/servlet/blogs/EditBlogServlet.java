@@ -62,9 +62,9 @@ private CategoryDAO categoryDAO;
 		int id = Integer.parseInt(request.getParameter("blog_id"));
 		BlogDto blogDto = blogDAO.getBlogById(id);		
 		List<CategoryDto> listCategoryDto = categoryDAO.selectAllCategoryDtos();
-		
-		request.setAttribute("listOfAllCategoriesOnEditBlog", listCategoryDto);
 		request.setAttribute("editableBlogDto", blogDto);
+		request.setAttribute("listOfAllCategoriesOnEditBlog", listCategoryDto);
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("EditBlog.jsp");
 		dispatcher.forward(request, response);
