@@ -27,7 +27,7 @@ private BlogDAO blogDAO;
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("blog_id"));
 		try {
 			blogDAO.deleteBlogDto(id);
 			response.sendRedirect("GetAllBlogsServlet");

@@ -22,7 +22,7 @@ public class BlogDAO {
 	private static final String SELECT_ALL_BLOGS = "SELECT blog.id, blog.title,blog.description,blog.created_on, category.id as category_id, category.name as category_name FROM blog,category WHERE category.id=blog.category_id_fk";
 	private static final String DELETE_BLOG_SQL = "delete from blog where id = ?;";
 	private static final String MOST_RECENT_3_BLOGS = "SELECT * FROM (SELECT blog.id, blog.title,blog.description,blog.created_on, category.id as category_id, category.name as category_name FROM blog,category WHERE category.id=blog.category_id_fk ORDER BY blog.id DESC LIMIT 3) t ORDER BY id DESC;";
-	//	private static final String UPDATE_BLOG_SQL = "update category set name = ? where id = ?;";
+		private static final String UPDATE_BLOG_SQL = "update blog set category_id_fk = ?, title = ?, description = ? where id = ?;";
 
 	public BlogDAO() {
 	}
@@ -124,7 +124,7 @@ public class BlogDAO {
 		return blogDtos;
 	}
 
-	
+
 	public boolean deleteBlogDto(int id) throws SQLException {
 		boolean rowDeleted=false;
 		try {
@@ -140,17 +140,28 @@ public class BlogDAO {
 		return rowDeleted;
 	}
 
-	/*
-	 * public boolean updateBlogDto(BlogDto blogDto) throws SQLException { boolean
-	 * rowUpdated=false; try { Connection connection = getConnection();
-	 * if(connection!=null) { PreparedStatement statement =
-	 * connection.prepareStatement(UPDATE_CATEGORY_SQL); statement.setString(1,
-	 * blogDto.getName()); statement.setInt(4, blogDto.getId());
-	 * 
-	 * rowUpdated = statement.executeUpdate() > 0; }
-	 * 
-	 * } catch(Exception ex) { //printSQLException(ex); } return rowUpdated; }
-	 */
+
+	public boolean updateBlogDto(BlogDto blogDto) throws SQLException { 
+		boolean rowUpdated=false;
+		try {
+			Connection connection = getConnection();
+		if(connection!=null) {
+			PreparedStatement statement =
+				connection.prepareStatement(UPDATE_BLOG_SQL); 
+			statement.setInt(1,blogDto.getCategoryIdFk());
+			statement.setString(2, blogDto.getTitle());
+			statement.setString(3, blogDto.getDescription());
+			statement.setInt(4, blogDto.getId());
+
+						rowUpdated = statement.executeUpdate() > 0; }
+
+		} catch(Exception ex) { 
+			//printSQLException(ex); }
+		
+		}
+		return rowUpdated;
+	}
+
 	public BlogDto getBlogById(int id) {
 		BlogDto blogDto = null;
 		// Step 1: Establishing a Connection

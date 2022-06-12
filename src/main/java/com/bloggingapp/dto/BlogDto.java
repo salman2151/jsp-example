@@ -22,6 +22,12 @@ public class BlogDto {
 		setDescription(description);
 		setCategoryIdFk(categoryId);
 	}
+	public BlogDto(int blogId, String title, String description, int categoryId) {
+		setId(blogId);
+		setTitle(title);
+		setDescription(description);
+		setCategoryIdFk(categoryId);
+	}
 	public int getId() {
 		return id;
 	}
